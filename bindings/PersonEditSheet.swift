@@ -10,12 +10,12 @@ import SwiftUI
 struct PersonEditSheet: View {
     @State private var name: String = ""
     
-    @Binding var targetPerson: Person
+    var targetPerson: Person
     @Binding var isPresentingTheEditView: Bool
     
     var body: some View {
         NavigationStack {
-            PersonEditView(name: $name)
+            PersonEditView(name: $name, actionString: "Edit")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Dismiss") {
@@ -37,5 +37,5 @@ struct PersonEditSheet: View {
 }
 
 #Preview {
-    PersonEditSheet(targetPerson: .constant(Person.sampleData[0]), isPresentingTheEditView: .constant(true))
+    PersonEditSheet(targetPerson: Person.sampleData[0], isPresentingTheEditView: .constant(true))
 }

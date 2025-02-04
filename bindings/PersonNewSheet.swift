@@ -15,7 +15,7 @@ struct PersonNewSheet: View {
     
     var body: some View {
         NavigationStack {
-            PersonEditView(name: $name)
+            PersonEditView(name: $name, actionString: "New")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Dismiss") {

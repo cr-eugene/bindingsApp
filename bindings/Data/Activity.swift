@@ -7,19 +7,13 @@
 
 import Foundation
 
-struct Activity:Identifiable, Hashable {
-    var id: UUID = UUID()
-    var name: String
-    var categories: [ActivityCategory]
+@Observable class Activity:Identifiable {
+    var name: String = ""
+    var categories: [ActivityCategory] = []
     
-    static func == (lhs: Activity, rhs: Activity) -> Bool {
-        return lhs.id == rhs.id
-    }
-
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-        hasher.combine(name)
+    init(name: String, categories: [ActivityCategory]) {
+        self.name = name
+        self.categories = categories
     }
 }
 

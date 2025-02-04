@@ -9,19 +9,20 @@ import SwiftUI
 
 struct PersonEditView: View {
     @Binding var name: String
+    var actionString: String
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section {
                     TextField("Name", text: $name)
                 }
             }
         }
-        .navigationTitle("Person Edit")
+        .navigationTitle("Person \(actionString)")
     }
 }
 
 #Preview {
-    PersonEditView(name: .constant("Foo"))
+    PersonEditView(name: .constant("Foo"), actionString: "New")
 }

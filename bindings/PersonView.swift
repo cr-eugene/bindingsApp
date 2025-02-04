@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PersonView: View {
-    @Binding var person: Person
+    @Bindable var person: Person
 
     @State private var isPresentingNewCategroryView: Bool = false
     @State private var tmpCategory: ActivityCategory = ActivityCategory(name: "")
@@ -19,8 +19,8 @@ struct PersonView: View {
                 Section(header: HStack {
                     Text("Activities")
                 }) {
-                    ForEach($person.activities) { $activity in
-                        NavigationLink(destination: ActivityView(activity: $activity)) {
+                    ForEach(person.activities) { activity in
+                        NavigationLink(destination: ActivityView(activity: activity)) {
                             Text(activity.name)
                         }
                     }
@@ -35,9 +35,9 @@ struct PersonView: View {
                         Image(systemName: "plus")
                     }
                 }) {
-                    ForEach($person.categories) { $category in
-                        NavigationLink(destination: CategoryView(category: $category)) {
-                            Text($category.wrappedValue.name)
+                    ForEach(person.categories) { category in
+                        NavigationLink(destination: CategoryView(category: category)) {
+                            Text(category.name)
                         }
                     }
                 }
@@ -51,5 +51,5 @@ struct PersonView: View {
 }
 
 #Preview {
-    PersonView(person: .constant(Person.sampleData[0]))
+    PersonView(person: Person.sampleData[0])
 }

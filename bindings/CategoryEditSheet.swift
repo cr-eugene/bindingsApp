@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryEditSheet: View {
     @State private var name: String = ""
     
-    @Binding var targetCategory: ActivityCategory
+    var targetCategory: ActivityCategory
     @Binding var isPresentingTheEditView: Bool
     
     var body: some View {
@@ -37,5 +37,5 @@ struct CategoryEditSheet: View {
 }
 
 #Preview {
-    CategoryEditSheet(targetCategory: .constant(ActivityCategory.sampleData[0]), isPresentingTheEditView: .constant(true))
+    CategoryEditSheet(targetCategory: ActivityCategory.sampleData[0], isPresentingTheEditView: .constant(true))
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @Binding var category: ActivityCategory
+    var category: ActivityCategory
     @State private var isPresentingTheEditView: Bool = false
     
     var body: some View {
@@ -25,11 +25,11 @@ struct CategoryView: View {
         }
         .navigationTitle("Category")
         .sheet(isPresented: $isPresentingTheEditView) {
-            CategoryEditSheet(targetCategory: $category, isPresentingTheEditView: $isPresentingTheEditView)
+            CategoryEditSheet(targetCategory: category, isPresentingTheEditView: $isPresentingTheEditView)
         }
     }
 }
 
 #Preview {
-    CategoryView(category: .constant(ActivityCategory.sampleData[0]))
+    CategoryView(category: ActivityCategory.sampleData[0])
 }

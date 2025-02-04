@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ActivityView: View {
-    @Binding var activity: Activity
+    var activity: Activity
     
     var body: some View {
-        List($activity.categories) { $category in
+        List(activity.categories) { category in
             Text(category.name)
         }
         .navigationTitle(activity.name)
@@ -19,5 +19,5 @@ struct ActivityView: View {
 }
 
 #Preview {
-    ActivityView(activity: .constant(Activity.sampleData[2]))
+    ActivityView(activity: Activity.sampleData[2])
 }
